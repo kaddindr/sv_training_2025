@@ -1,0 +1,13 @@
+*.vdb
+DVEfiles/
+*.log
+*.rc
+*.conf
+verdiLog/ 
+simv 
+simv.daidir/ 
+csrc/ 
+ucli.key 
+*.fsdb 
+*.vpd 
+*.vdb
