@@ -8,7 +8,7 @@ timeprecision 1ps;
 	output cout;
 
 	wire c1, c2, c3;
-	full_adder fa0(in0[0], in1[0], 0, out[0], c1);
+	full_adder fa0(in0[0], in1[0], 1'b0, out[0], c1);
 	full_adder fa1(in0[1], in1[1], c1, out[1], c2);
 	full_adder fa2(in0[2], in1[2], c2, out[2], c3);
 	full_adder fa3(in0[3], in1[3], c3, out[3], cout);

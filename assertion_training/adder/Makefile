@@ -1,7 +1,8 @@
 
 rca:
-	vcs -full64 -R -sverilog -l rca.log adder.sv rca.sv rca_tb.sv -debug_access+all +vcs+vcdpluson -assert dve
-	#dve -full64 -vpd vcdplus.vpd&
+	vcs -full64 -sverilog -l rca.log adder.sv rca.sv rca_tb.sv -debug_access+all +vcs+vcdpluson -assert dve
+	./simv -vpd_file rca.vpd -assert vacuous
+	dve -full64 -vpd rca.vpd&
 
 
 clean:
