@@ -13,23 +13,31 @@ timeprecision 1ps;
 
   // Assertions
   // ----------------------------------------
-  // Using $past
-  property p_past;
-    @(posedge clk) (q == $past(d));
+  // Using |=> (implication)
+  property p_implication;
+    @(posedge clk) d |=> q;
   endproperty
-  assert_past: assert property (p_past);
+  assert_implication: assert property (p_implication);
 
   
   initial begin
     // Test 1:
+  /*  d = 1;
+
+    #10;  // After 1 cycle, q becomes 1
+    #10;  // Hold for another cycle
+
+    // Test 2
+    d = 0;
+*/  #10;
     d = 1;
-    #10;  // After 1 cycle, q becomes 1 (posedge clk at 5ns)
-    #10;  // Hold for another cycle     (posedge clk at 15 ns)
+
+    #10;  // After 1 cycle, q becomes 1
+    #10;  // Hold for another cycle
 
     // Test 2
     d = 0;
     #10;
-
     $finish;
   end
 endmodule
