@@ -1,9 +1,8 @@
 
 dff:
-	vcs -full64 -sverilog -l dff.log dff.sv dff_tb.sv -debug_access+all +vcs+vcdpluson -cm assert -cm_dir dff.vdb
+	vcs -full64 -sverilog -l dff.log dff.sv dff_tb.sv -debug_access+all +vcs+vcdpluson
 	./simv -assert vacuous -vpd_file dff.vpd
-	urg -dir dff.vdb -report dff_report
-	#dve -full64 -vpd dff.vpd&
+	dve -full64 -vpd dff.vpd&
 
 
 dff2:
@@ -12,7 +11,7 @@ dff2:
 	dve -full64 -vpd dff2.vpd&
 
 dff3:
-	vcs -full64 -sverilog -l dff3.log dff.sv dff_tb3.sv -debug_access+all +vcs+vcdpluson #-assert enable_diag+summary+vacuous+dve
+	vcs -full64 -sverilog -l dff3.log dff.sv dff_tb3.sv -debug_access+all +vcs+vcdpluson
 	./simv -assert vacuous -vpd_file dff3.vpd
 	dve -full64 -vpd dff3.vpd&
 

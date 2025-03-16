@@ -1,8 +1,7 @@
 // dff_tb.sv
 module dff_tb;
-timeunit 1ns;
+  timeunit 1ns;
 timeprecision 1ps;
-
   logic clk = 0, d, q;
 
   // Instantiate DUT
@@ -13,11 +12,11 @@ timeprecision 1ps;
 
   // Assertions
   // ----------------------------------------
-  // Using $past
-  property p_past;
+  // Using |=> (implication)
+  property p_implication;
     @(posedge clk) (q == $past(d));
   endproperty
-  assert_past: assert property (p_past);
+  assert_implication: assert property (p_implication);
 
   
   initial begin
